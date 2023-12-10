@@ -103,6 +103,22 @@ public class ToolActions {
      */
     public static final ToolAction FISHING_ROD_CAST = ToolAction.get("fishing_rod_cast");
 
+    /**
+     * This action corresponds to a dismantle action performed by a wrench (usually sneak-right-click).
+     */
+    public static final ToolAction WRENCH_DISMANTLE = ToolAction.get("wrench_dismantle");
+
+    /**
+     * This action corresponds to a wrench rotating a block, when handled by the block.
+     */
+    public static final ToolAction WRENCH_ROTATE = ToolAction.get("wrench_rotate");
+
+    /**
+     * This action corresponds to a special configuration action performed by a wrench, specific to a block.
+     * e.g. toggle an option on a side, change a configuration setting.
+     */
+    public static final ToolAction WRENCH_CONFIGURE = ToolAction.get("wrench_configure");
+
     // Default actions supported by each tool type
     public static final Set<ToolAction> DEFAULT_AXE_ACTIONS = of(AXE_DIG, AXE_STRIP, AXE_SCRAPE, AXE_WAX_OFF);
     public static final Set<ToolAction> DEFAULT_HOE_ACTIONS = of(HOE_DIG, HOE_TILL);
@@ -112,6 +128,7 @@ public class ToolActions {
     public static final Set<ToolAction> DEFAULT_SHEARS_ACTIONS = of(SHEARS_DIG, SHEARS_HARVEST, SHEARS_CARVE, SHEARS_DISARM);
     public static final Set<ToolAction> DEFAULT_SHIELD_ACTIONS = of(SHIELD_BLOCK);
     public static final Set<ToolAction> DEFAULT_FISHING_ROD_ACTIONS = of(FISHING_ROD_CAST);
+    public static final Set<ToolAction> DEFAULT_WRENCH_ACTIONS = of(WRENCH_CONFIGURE, WRENCH_DISMANTLE, WRENCH_ROTATE);
 
     private static Set<ToolAction> of(ToolAction... actions) {
         return Stream.of(actions).collect(Collectors.toCollection(Sets::newIdentityHashSet));
