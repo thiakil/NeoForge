@@ -1,6 +1,6 @@
 --- a/net/minecraft/world/level/block/DoublePlantBlock.java
 +++ b/net/minecraft/world/level/block/DoublePlantBlock.java
-@@ -71,6 +_,7 @@
+@@ -71,11 +_,12 @@
              return super.canSurvive(p_52887_, p_52888_, p_52889_);
          } else {
              BlockState blockstate = p_52888_.getBlockState(p_52889_.below());
@@ -8,3 +8,9 @@
              return blockstate.is(this) && blockstate.getValue(HALF) == DoubleBlockHalf.LOWER;
          }
      }
+ 
+-    public static void placeAt(LevelAccessor p_153174_, BlockState p_153175_, BlockPos p_153176_, int p_153177_) {
++    public static void placeAt(LevelAccessor p_153174_, BlockState p_153175_, BlockPos p_153176_, @net.neoforged.neoforge.annotations.BlockFlags int p_153177_) {
+         BlockPos blockpos = p_153176_.above();
+         p_153174_.setBlock(p_153176_, copyWaterloggedFrom(p_153174_, p_153176_, p_153175_.setValue(HALF, DoubleBlockHalf.LOWER)), p_153177_);
+         p_153174_.setBlock(blockpos, copyWaterloggedFrom(p_153174_, blockpos, p_153175_.setValue(HALF, DoubleBlockHalf.UPPER)), p_153177_);

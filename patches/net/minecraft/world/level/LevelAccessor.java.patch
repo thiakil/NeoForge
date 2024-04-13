@@ -1,0 +1,19 @@
+--- a/net/minecraft/world/level/LevelAccessor.java
++++ b/net/minecraft/world/level/LevelAccessor.java
+@@ -26,6 +_,7 @@
+ import net.minecraft.world.ticks.LevelTickAccess;
+ import net.minecraft.world.ticks.ScheduledTick;
+ import net.minecraft.world.ticks.TickPriority;
++import net.neoforged.neoforge.annotations.BlockFlags;
+ 
+ public interface LevelAccessor extends CommonLevelAccessor, LevelTimeAccess {
+     @Override
+@@ -86,7 +_,7 @@
+     default void blockUpdated(BlockPos p_46781_, Block p_46782_) {
+     }
+ 
+-    default void neighborShapeChanged(Direction p_220411_, BlockState p_220412_, BlockPos p_220413_, BlockPos p_220414_, int p_220415_, int p_220416_) {
++    default void neighborShapeChanged(Direction p_220411_, BlockState p_220412_, BlockPos p_220413_, BlockPos p_220414_, @net.neoforged.neoforge.annotations.BlockFlags int p_220415_, int p_220416_) {
+         NeighborUpdater.executeShapeUpdate(this, p_220411_, p_220412_, p_220413_, p_220414_, p_220415_, p_220416_ - 1);
+     }
+ 

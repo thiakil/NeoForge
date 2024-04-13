@@ -18,6 +18,15 @@
      }
  
      public BlockBehaviour.Properties properties() {
+@@ -128,7 +_,7 @@
+         return RecordCodecBuilder.mapCodec(p_304392_ -> p_304392_.group(propertiesCodec()).apply(p_304392_, p_304394_));
+     }
+ 
+-    protected void updateIndirectNeighbourShapes(BlockState p_60520_, LevelAccessor p_60521_, BlockPos p_60522_, int p_60523_, int p_60524_) {
++    protected void updateIndirectNeighbourShapes(BlockState p_60520_, LevelAccessor p_60521_, BlockPos p_60522_, @net.neoforged.neoforge.annotations.BlockFlags int p_60523_, int p_60524_) {
+     }
+ 
+     protected boolean isPathfindable(BlockState p_60475_, PathComputationType p_60478_) {
 @@ -160,7 +_,7 @@
      }
  
@@ -131,6 +140,34 @@
 +            PushReaction reaction = getBlock().getPistonPushReaction(asState());
 +            if (reaction != null) return reaction;
              return this.pushReaction;
+         }
+ 
+@@ -669,11 +_,11 @@
+             this.getBlock().neighborChanged(this.asState(), p_60691_, p_60692_, p_60693_, p_60694_, p_60695_);
+         }
+ 
+-        public final void updateNeighbourShapes(LevelAccessor p_60702_, BlockPos p_60703_, int p_60704_) {
++        public final void updateNeighbourShapes(LevelAccessor p_60702_, BlockPos p_60703_, @net.neoforged.neoforge.annotations.BlockFlags int p_60704_) {
+             this.updateNeighbourShapes(p_60702_, p_60703_, p_60704_, 512);
+         }
+ 
+-        public final void updateNeighbourShapes(LevelAccessor p_60706_, BlockPos p_60707_, int p_60708_, int p_60709_) {
++        public final void updateNeighbourShapes(LevelAccessor p_60706_, BlockPos p_60707_, @net.neoforged.neoforge.annotations.BlockFlags int p_60708_, int p_60709_) {
+             BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();
+ 
+             for (Direction direction : BlockBehaviour.UPDATE_SHAPE_ORDER) {
+@@ -682,11 +_,11 @@
+             }
+         }
+ 
+-        public final void updateIndirectNeighbourShapes(LevelAccessor p_60759_, BlockPos p_60760_, int p_60761_) {
++        public final void updateIndirectNeighbourShapes(LevelAccessor p_60759_, BlockPos p_60760_, @net.neoforged.neoforge.annotations.BlockFlags int p_60761_) {
+             this.updateIndirectNeighbourShapes(p_60759_, p_60760_, p_60761_, 512);
+         }
+ 
+-        public void updateIndirectNeighbourShapes(LevelAccessor p_60763_, BlockPos p_60764_, int p_60765_, int p_60766_) {
++        public void updateIndirectNeighbourShapes(LevelAccessor p_60763_, BlockPos p_60764_, @net.neoforged.neoforge.annotations.BlockFlags int p_60765_, int p_60766_) {
+             this.getBlock().updateIndirectNeighbourShapes(this.asState(), p_60763_, p_60764_, p_60765_, p_60766_);
          }
  
 @@ -723,6 +_,9 @@

@@ -1,0 +1,11 @@
+--- a/net/minecraft/world/level/redstone/NeighborUpdater.java
++++ b/net/minecraft/world/level/redstone/NeighborUpdater.java
+@@ -31,7 +_,7 @@
+     }
+ 
+     static void executeShapeUpdate(
+-        LevelAccessor p_230771_, Direction p_230772_, BlockState p_230773_, BlockPos p_230774_, BlockPos p_230775_, int p_230776_, int p_230777_
++        LevelAccessor p_230771_, Direction p_230772_, BlockState p_230773_, BlockPos p_230774_, BlockPos p_230775_, @net.neoforged.neoforge.annotations.BlockFlags int p_230776_, int p_230777_
+     ) {
+         BlockState blockstate = p_230771_.getBlockState(p_230774_);
+         BlockState blockstate1 = blockstate.updateShape(p_230772_, p_230773_, p_230771_, p_230774_, p_230775_);

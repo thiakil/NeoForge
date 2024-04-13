@@ -1,0 +1,11 @@
+--- a/net/minecraft/world/level/redstone/CollectingNeighborUpdater.java
++++ b/net/minecraft/world/level/redstone/CollectingNeighborUpdater.java
+@@ -134,7 +_,7 @@
+         boolean runNext(Level p_230702_);
+     }
+ 
+-    static record ShapeUpdate(Direction direction, BlockState state, BlockPos pos, BlockPos neighborPos, int updateFlags, int updateLimit)
++    static record ShapeUpdate(Direction direction, BlockState state, BlockPos pos, BlockPos neighborPos, @net.neoforged.neoforge.annotations.BlockFlags int updateFlags, int updateLimit)
+         implements CollectingNeighborUpdater.NeighborUpdates {
+         @Override
+         public boolean runNext(Level p_230716_) {

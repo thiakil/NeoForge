@@ -15,6 +15,20 @@
      private static final LoadingCache<VoxelShape, Boolean> SHAPE_FULL_BLOCK_CACHE = CacheBuilder.newBuilder()
          .maximumSize(512L)
          .weakKeys()
+@@ -165,11 +_,11 @@
+         return blockstate;
+     }
+ 
+-    public static void updateOrDestroy(BlockState p_49903_, BlockState p_49904_, LevelAccessor p_49905_, BlockPos p_49906_, int p_49907_) {
++    public static void updateOrDestroy(BlockState p_49903_, BlockState p_49904_, LevelAccessor p_49905_, BlockPos p_49906_, @net.neoforged.neoforge.annotations.BlockFlags int p_49907_) {
+         updateOrDestroy(p_49903_, p_49904_, p_49905_, p_49906_, p_49907_, 512);
+     }
+ 
+-    public static void updateOrDestroy(BlockState p_49909_, BlockState p_49910_, LevelAccessor p_49911_, BlockPos p_49912_, int p_49913_, int p_49914_) {
++    public static void updateOrDestroy(BlockState p_49909_, BlockState p_49910_, LevelAccessor p_49911_, BlockPos p_49912_, @net.neoforged.neoforge.annotations.BlockFlags int p_49913_, int p_49914_) {
+         if (p_49910_ != p_49909_) {
+             if (p_49910_.isAir()) {
+                 if (!p_49911_.isClientSide()) {
 @@ -187,12 +_,13 @@
          this.createBlockStateDefinition(builder);
          this.stateDefinition = builder.create(Block::defaultBlockState, BlockState::new);

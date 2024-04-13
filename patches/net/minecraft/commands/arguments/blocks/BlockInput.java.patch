@@ -1,0 +1,11 @@
+--- a/net/minecraft/commands/arguments/blocks/BlockInput.java
++++ b/net/minecraft/commands/arguments/blocks/BlockInput.java
+@@ -57,7 +_,7 @@
+         return this.test(new BlockInWorld(p_173524_, p_173525_, false));
+     }
+ 
+-    public boolean place(ServerLevel p_114671_, BlockPos p_114672_, int p_114673_) {
++    public boolean place(ServerLevel p_114671_, BlockPos p_114672_, @net.neoforged.neoforge.annotations.BlockFlags int p_114673_) {
+         BlockState blockstate = Block.updateFromNeighbourShapes(this.state, p_114671_, p_114672_);
+         if (blockstate.isAir()) {
+             blockstate = this.state;

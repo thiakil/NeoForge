@@ -8,7 +8,7 @@
          }
      );
      private final ClientChunkCache chunkSource;
-@@ -128,6 +_,8 @@
+@@ -128,12 +_,14 @@
      private int serverSimulationDistance;
      private final BlockStatePredictionHandler blockStatePredictionHandler = new BlockStatePredictionHandler();
      private static final Set<Item> MARKER_PARTICLE_ITEMS = Set.of(Items.BARRIER, Items.LIGHT);
@@ -17,6 +17,22 @@
  
      public void handleBlockChangedAck(int p_233652_) {
          this.blockStatePredictionHandler.endPredictionsUpTo(p_233652_, this);
+     }
+ 
+-    public void setServerVerifiedBlockState(BlockPos p_233654_, BlockState p_233655_, int p_233656_) {
++    public void setServerVerifiedBlockState(BlockPos p_233654_, BlockState p_233655_, @net.neoforged.neoforge.annotations.BlockFlags int p_233656_) {
+         if (!this.blockStatePredictionHandler.updateKnownServerState(p_233654_, p_233655_)) {
+             super.setBlock(p_233654_, p_233655_, p_233656_, 512);
+         }
+@@ -155,7 +_,7 @@
+     }
+ 
+     @Override
+-    public boolean setBlock(BlockPos p_233643_, BlockState p_233644_, int p_233645_, int p_233646_) {
++    public boolean setBlock(BlockPos p_233643_, BlockState p_233644_, @net.neoforged.neoforge.annotations.BlockFlags int p_233645_, int p_233646_) {
+         if (this.blockStatePredictionHandler.isPredicting()) {
+             BlockState blockstate = this.getBlockState(p_233643_);
+             boolean flag = super.setBlock(p_233643_, p_233644_, p_233645_, p_233646_);
 @@ -192,6 +_,7 @@
          this.serverSimulationDistance = p_205510_;
          this.updateSkyBrightness();
@@ -71,6 +87,15 @@
          if (p_263514_ == this.minecraft.player) {
              this.minecraft.getSoundManager().play(new EntityBoundSoundInstance(p_263518_.value(), p_263487_, p_263538_, p_263524_, p_263536_, p_263509_));
          }
+@@ -626,7 +_,7 @@
+     }
+ 
+     @Override
+-    public void sendBlockUpdated(BlockPos p_104685_, BlockState p_104686_, BlockState p_104687_, int p_104688_) {
++    public void sendBlockUpdated(BlockPos p_104685_, BlockState p_104686_, BlockState p_104687_, @net.neoforged.neoforge.annotations.BlockFlags int p_104688_) {
+         this.levelRenderer.blockChanged(this, p_104685_, p_104686_, p_104687_, p_104688_);
+     }
+ 
 @@ -1033,6 +_,7 @@
          }
  

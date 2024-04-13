@@ -185,6 +185,15 @@
          float f = this.level.effects().getCloudHeight();
          if (!Float.isNaN(f)) {
              float f1 = 12.0F;
+@@ -2497,7 +_,7 @@
+         p_271015_.vertex(matrix4f, p_270102_, p_270605_, p_271006_).color(p_270864_, p_270181_, p_270220_, p_270293_).endVertex();
+     }
+ 
+-    public void blockChanged(BlockGetter p_109545_, BlockPos p_109546_, BlockState p_109547_, BlockState p_109548_, int p_109549_) {
++    public void blockChanged(BlockGetter p_109545_, BlockPos p_109546_, BlockState p_109547_, BlockState p_109548_, @net.neoforged.neoforge.annotations.BlockFlags int p_109549_) {
+         this.setBlockDirty(p_109546_, (p_109549_ & 8) != 0);
+     }
+ 
 @@ -2545,7 +_,32 @@
          this.viewArea.setDirty(p_109502_, p_109503_, p_109504_, p_109505_);
      }

@@ -41,7 +41,7 @@ public class BlockSnapshot {
     private WeakReference<LevelAccessor> level;
     private String toString = null;
 
-    private BlockSnapshot(ResourceKey<Level> dim, LevelAccessor level, BlockPos pos, BlockState state, @Nullable CompoundTag nbt, int flags) {
+    private BlockSnapshot(ResourceKey<Level> dim, LevelAccessor level, BlockPos pos, BlockState state, @Nullable CompoundTag nbt, @net.neoforged.neoforge.annotations.BlockFlags int flags) {
         this.dim = dim;
         this.pos = pos.immutable();
         this.block = state;
@@ -58,7 +58,7 @@ public class BlockSnapshot {
         return create(dim, world, pos, 3);
     }
 
-    public static BlockSnapshot create(ResourceKey<Level> dim, LevelAccessor world, BlockPos pos, int flag) {
+    public static BlockSnapshot create(ResourceKey<Level> dim, LevelAccessor world, BlockPos pos, @net.neoforged.neoforge.annotations.BlockFlags int flag) {
         return new BlockSnapshot(dim, world, pos, world.getBlockState(pos), getBlockEntityTag(world.getBlockEntity(pos), world.registryAccess()), flag);
     }
 
@@ -178,6 +178,7 @@ public class BlockSnapshot {
         return pos;
     }
 
+    @net.neoforged.neoforge.annotations.BlockFlags
     public int getFlag() {
         return flags;
     }
