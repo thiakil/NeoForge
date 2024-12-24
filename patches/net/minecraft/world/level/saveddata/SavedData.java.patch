@@ -1,15 +1,20 @@
 --- a/net/minecraft/world/level/saveddata/SavedData.java
 +++ b/net/minecraft/world/level/saveddata/SavedData.java
-@@ -37,7 +_,7 @@
+@@ -36,18 +_,23 @@
+             compoundtag.put("data", this.save(new CompoundTag(), p_324088_));
              NbtUtils.addCurrentDataVersion(compoundtag);
  
++            net.neoforged.neoforge.common.IOUtilities.withIOWorker(()->{
              try {
 -                NbtIo.writeCompressed(compoundtag, p_77758_.toPath());
 +                net.neoforged.neoforge.common.IOUtilities.writeNbtCompressed(compoundtag, p_77758_.toPath());
              } catch (IOException ioexception) {
                  LOGGER.error("Could not save data {}", this, ioexception);
              }
-@@ -47,7 +_,10 @@
++            });
+ 
+             this.setDirty(false);
+         }
      }
  
      public static record Factory<T extends SavedData>(
