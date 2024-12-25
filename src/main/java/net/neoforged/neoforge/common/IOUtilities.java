@@ -38,7 +38,7 @@ public final class IOUtilities {
             StandardOpenOption.WRITE,
             StandardOpenOption.TRUNCATE_EXISTING
     };
-    private static final ThreadFactory THREAD_FACTORY = new NamedThreadFactory("Neoforge-IOUtilities");
+    private static final ThreadFactory THREAD_FACTORY = new NamedThreadFactory("NeoForge-IOUtilities");
     private static ExecutorService ioExecutor = newIOExecutor();
 
     private IOUtilities() {}
