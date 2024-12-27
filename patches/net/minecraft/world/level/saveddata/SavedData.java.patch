@@ -1,13 +1,16 @@
 --- a/net/minecraft/world/level/saveddata/SavedData.java
 +++ b/net/minecraft/world/level/saveddata/SavedData.java
-@@ -36,18 +_,23 @@
+@@ -36,18 +_,26 @@
              compoundtag.put("data", this.save(new CompoundTag(), p_324088_));
              NbtUtils.addCurrentDataVersion(compoundtag);
  
++            //copy the contents to handle mods that just append an existing Tag to the Compound
++            CompoundTag copied = compoundtag.copy();
++
 +            net.neoforged.neoforge.common.IOUtilities.withIOWorker(()->{
              try {
 -                NbtIo.writeCompressed(compoundtag, p_77758_.toPath());
-+                net.neoforged.neoforge.common.IOUtilities.writeNbtCompressed(compoundtag, p_77758_.toPath());
++                net.neoforged.neoforge.common.IOUtilities.writeNbtCompressed(copied, p_77758_.toPath());
              } catch (IOException ioexception) {
                  LOGGER.error("Could not save data {}", this, ioexception);
              }
